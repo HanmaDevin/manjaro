@@ -82,7 +82,7 @@ alias remove="pamac remove -u --no-confirm"
 alias update="pamac upgrade -a --no-confirm"
 alias upgrade="pamac upgrade -a --no-confirm"
 alias search="pamac search -a"
-alias info="pamac info"
+alias info="pamac info -a"
 
 alias copy="xsel -i -b"
 alias paste="xsel -o -b"
