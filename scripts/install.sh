@@ -42,6 +42,7 @@ packages=(
   "cargo"
   "fd"
   "starship"
+  "xdg-desktop-portal-wlr"
   "wine"
   "ttf-font-awesome"
   "ttf-nerd-fonts-symbols"
@@ -58,6 +59,7 @@ aur_paqkages=(
   "lazydocker"
   "ani-cli"
   "luajit-tiktoken-bin"
+  "xwaylandvideobridge"
   )
 
 installPackages() {
