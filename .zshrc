@@ -76,11 +76,13 @@ alias cd="z"
 alias refresh="source ~/.zshrc"
 
 # pacman
-alias get="sudo pacman -S --noconfirm"
-alias remove="sudo pacman -Rsun --noconfirm"
-alias update="sudo pacman -Syu --noconfirm"
-alias search="pacman -Ss"
-alias info="pacman -Qi"
+alias get="pamac install --no-confirm"
+alias get-aur="pamac build"
+alias remove="pamac remove -u --no-confirm"
+alias update="pamac upgrade -a --no-confirm"
+alias upgrade="pamac upgrade -a --no-confirm"
+alias search="pamac search -a"
+alias info="pamac info"
 
 alias copy="xsel -i -b"
 alias paste="xsel -o -b"
