@@ -77,7 +77,7 @@ alias refresh="source ~/.zshrc"
 
 # pacman
 alias get="sudo pacman -S --noconfirm"
-alias remove="sudo pacman -Rns --noconfirm"
+alias remove="sudo pacman -Rsun --noconfirm"
 alias update="sudo pacman -Syu --noconfirm"
 alias search="pacman -Ss"
 alias info="pacman -Qi"
