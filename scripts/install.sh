@@ -7,7 +7,7 @@
 #                                                  /_/           
 clear
 
-from="$HOME/hyprdev/"
+from="$HOME/manjaro/"
 cfgPath="$from/.config/"
 
 packages=(
@@ -21,9 +21,10 @@ packages=(
   "mpv"
   "mpv-mpris"
   "neovim"
-  "nodejs-lts-jod"
+  "nodejs"
   "zsh"
   "fastfetch"
+  "fakeroot"
   "glow"
   "discord"
   "lazygit"
@@ -36,6 +37,7 @@ packages=(
   "bat"
   "jdk-openjdk"
   "docker"
+  "xsel"
   "ripgrep"
   "cargo"
   "fd"
@@ -45,7 +47,7 @@ packages=(
   "ttf-nerd-fonts-symbols"
   "ttf-jetbrains-mono-nerd"
   "noto-fonts-emoji"
-  "7izp"
+  "7zip"
   "texlive"
   "net-tools"
   "inetutils"
@@ -60,31 +62,14 @@ aur_paqkages=(
 
 installPackages() {
   for pgk in "${packages[@]}"; do
-    if ! pacman -Qi "$pgk" &> /dev/null; then
-      sudo pacman --noconfirm -S "$pgk"
-    else
-      echo ":: $pgk is already installed."
-    fi
+    pamac install --no-confirm "$pgk"
   done
 }
 
 installAurPackages() {
   for aur_pkg in "${aur_paqkages[@]}"; do
-    if ! pacman -Qi "$aur_pkg" &> /dev/null; then
-      echo ":: Installing $aur_pkg..."
-      yay --noconfirm -S "$aur_pkg"
-    else
-      echo "$aur_pkg is already installed."
-    fi
+    pamac build --no-confirm "$aur_pkg"
   done
-  echo ":: All AUR packages have been installed successfully."
-}
-
-installYay() {
-    git clone https://aur.archlinux.org/yay.git $HOME/yay
-    cd $HOME/yay
-    makepkg -si
-    echo ":: yay has been installed successfully."
 }
 
 configure_git() {
@@ -125,14 +110,6 @@ detect_nvidia() {
     echo "It seems you are not using a Nvidia GPU"
     echo "If you have a Nvidia GPU then download the drivers yourself please :)"
   fi
-}
-
-config_ufw() {
-  gum spin --spinner dot --title "Firewall will be configured..." -- sleep 2
-  sudo ufw enable
-  sudo ufw default deny incoming
-  sudo ufw default allow outgoing
-  sudo ufw status verbose
 }
 
 copy_config() {
@@ -206,12 +183,11 @@ while true; do
     esac
 done
 
-sudo pacman -Syu
+pamac upgrade -a
 
 # Install required packages
 echo ":: Installing required packages..."
 installPackages
-installYay
 installAurPackages
 
 gum spin --spinner dot --title "Starting setup now..." -- sleep 2
