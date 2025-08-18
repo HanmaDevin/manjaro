@@ -105,7 +105,7 @@ detect_nvidia() {
   if [[ $gpu == *' nvidia '* ]]; then
     echo ":: Nvidia GPU is present"
     gum spin --spinner dot --title "Installaling nvidia drivers now..." -- sleep 2
-    sudo pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
+    pamac install --noconfirm nvidia nvidia-utils nvidia-settings
   else
     echo "It seems you are not using a Nvidia GPU"
     echo "If you have a Nvidia GPU then download the drivers yourself please :)"
