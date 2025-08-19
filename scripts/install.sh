@@ -11,7 +11,7 @@ from="$HOME/manjaro/"
 cfgPath="$from/.config/"
 
 packages=(
-  "git"
+  "go"
   "gum"
   "npm"
   "zip"
@@ -23,6 +23,7 @@ packages=(
   "mpv-mpris"
   "neovim"
   "nodejs"
+  "npm"
   "zsh"
   "fastfetch"
   "fakeroot"
@@ -100,20 +101,20 @@ configure_git() {
   fi
 }
 
-detect_nvidia() {
-  gpu=$(lspci | grep -i '.* vga .* nvidia .*')
-
-  shopt -s nocasematch
-
-  if [[ $gpu == *' nvidia '* ]]; then
-    echo ":: Nvidia GPU is present"
-    gum spin --spinner dot --title "Installaling nvidia drivers now..." -- sleep 2
-    pamac install --noconfirm nvidia nvidia-utils nvidia-settings
-  else
-    echo "It seems you are not using a Nvidia GPU"
-    echo "If you have a Nvidia GPU then download the drivers yourself please :)"
-  fi
-}
+# detect_nvidia() {
+#   gpu=$(lspci | grep -i '.* vga .* nvidia .*')
+#
+#   shopt -s nocasematch
+#
+#   if [[ $gpu == *' nvidia '* ]]; then
+#     echo ":: Nvidia GPU is present"
+#     gum spin --spinner dot --title "Installaling nvidia drivers now..." -- sleep 2
+#     pamac install --noconfirm nvidia nvidia-utils nvidia-settings
+#   else
+#     echo "It seems you are not using a Nvidia GPU"
+#     echo "If you have a Nvidia GPU then download the drivers yourself please :)"
+#   fi
+# }
 
 copy_config() {
   gum spin --spinner dot --title "Creating bakups..." -- sleep 2
@@ -195,7 +196,7 @@ installAurPackages
 
 gum spin --spinner dot --title "Starting setup now..." -- sleep 2
 copy_config
-detect_nvidia
+# detect_nvidia
 configure_git
 add_tmux_tpm
 
