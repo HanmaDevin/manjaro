@@ -13,6 +13,7 @@ cfgPath="$from/.config/"
 packages=(
   "git"
   "gum"
+  "npm"
   "zip"
   "unzip"
   "curl"
