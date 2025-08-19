@@ -77,7 +77,7 @@ alias refresh="source ~/.zshrc"
 
 # pacman
 alias get="pamac install --no-confirm"
-alias get-aur="pamac build"
+alias getaur="pamac build"
 alias remove="pamac remove -u --no-confirm"
 alias update="pamac upgrade -a --no-confirm"
 alias upgrade="pamac upgrade -a --no-confirm"
