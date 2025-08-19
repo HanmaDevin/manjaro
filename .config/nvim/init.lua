@@ -759,44 +759,27 @@ require('lazy').setup({
   },
 
   {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-  },
-
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    'sainnhe/everforest',
     priority = 1000,
     config = function()
-      require('catppuccin').setup {
-        flavour = 'mocha',
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          treesitter = true,
-          telescope = true,
-          which_key = true,
-        },
-      }
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'everforest'
 
-      vim.api.nvim_set_hl(0, 'CmpPmenu', { bg = '#1e1e2e', fg = '#cdd6f4' })
-      vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#313244', fg = '#cdd6f4', bold = true })
-      vim.api.nvim_set_hl(0, 'CmpDoc', { bg = '#181825', fg = '#cdd6f4' })
+      vim.api.nvim_set_hl(0, 'CmpPmenu', { bg = '#2b3339', fg = '#d3c6aa' })
+      vim.api.nvim_set_hl(0, 'CmpSel', { bg = '#495156', fg = '#d3c6aa', bold = true })
+      vim.api.nvim_set_hl(0, 'CmpDoc', { bg = '#232a2e', fg = '#d3c6aa' })
 
-      vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = '#b4befe' })
-      vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = '#b4befe' })
-      vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = '#f9e2af' })
-      vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = '#cba6f7' })
-      vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { fg = '#89dceb' })
-      vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { fg = '#a6e3a1' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { fg = '#7fbbb3' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { fg = '#7fbbb3' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { fg = '#dbbc7f' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { fg = '#d699b6' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { fg = '#83c092' })
+      vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { fg = '#a7c080' })
 
-      vim.api.nvim_set_hl(0, 'LspHover', { bg = '#1e1e2e', fg = '#cdd6f4' })
-      vim.api.nvim_set_hl(0, 'LspHoverBorder', { bg = '#1e1e2e', fg = '#89b4fa', bold = true })
-      vim.api.nvim_set_hl(0, 'LspHoverSel', { bg = '#313244', fg = '#cdd6f4' })
-      vim.api.nvim_set_hl(0, 'LspSignatureHelp', { bg = '#1e1e2e', fg = '#cdd6f4' })
-      vim.api.nvim_set_hl(0, 'LspSignatureHelpBorder', { bg = '#1e1e2e', fg = '#a6e3a1', bold = true })
+      vim.api.nvim_set_hl(0, 'LspHover', { bg = '#2b3339', fg = '#d3c6aa' })
+      vim.api.nvim_set_hl(0, 'LspHoverBorder', { bg = '#2b3339', fg = '#7fbbb3', bold = true })
+      vim.api.nvim_set_hl(0, 'LspHoverSel', { bg = '#495156', fg = '#d3c6aa' })
+      vim.api.nvim_set_hl(0, 'LspSignatureHelp', { bg = '#2b3339', fg = '#d3c6aa' })
+      vim.api.nvim_set_hl(0, 'LspSignatureHelpBorder', { bg = '#2b3339', fg = '#a7c080', bold = true })
     end,
   },
 
@@ -811,57 +794,35 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      -- Catppuccin Mocha color palette
+      -- Everforest color palette
       local colors = {
-        rosewater = '#f5e0dc',
-        flamingo = '#f2cdcd',
-        pink = '#f5c2e7',
-        mauve = '#cba6f7',
-        red = '#f38ba8',
-        maroon = '#eba0ac',
-        peach = '#fab387',
-        yellow = '#f9e2af',
-        green = '#a6e3a1',
-        teal = '#94e2d5',
-        sky = '#89dceb',
-        sapphire = '#74c7ec',
-        blue = '#89b4fa',
-        lavender = '#b4befe',
-        text = '#cdd6f4',
-        subtext1 = '#bac2de',
-        subtext0 = '#a6adc8',
-        overlay2 = '#9399b2',
-        overlay1 = '#7f849c',
-        overlay0 = '#6c7086',
-        surface2 = '#585b70',
-        surface1 = '#45475a',
-        surface0 = '#313244',
-        base = '#1e1e2e',
-        mantle = '#181825',
-        crust = '#11111b',
+        fg = '#d3c6aa',
+        bg = '#2b3339',
+        yellow = '#dbbc7f',
+        cyan = '#7fbbb3',
+        darkblue = '#293136',
+        green = '#a7c080',
+        orange = '#e69875',
+        violet = '#d699b6',
+        magenta = '#d699b6',
+        blue = '#7fbbb3',
+        red = '#e67e80',
+        base = '#2b3339',
+        text = '#d3c6aa',
+        peach = '#e69875',
+        pink = '#e67e80',
+        sky = '#83c092',
+        mauve = '#d699b6',
+        surface0 = '#374145',
+        overlay0 = '#495156',
       }
-
-      -- Custom theme with proper Catppuccin colors
-      local catppuccin_theme = require 'lualine.themes.catppuccin'
-
-      -- Enhance mode colors with proper Catppuccin Mocha palette
-      catppuccin_theme.normal.a.bg = colors.blue
-      catppuccin_theme.insert.a.bg = colors.green
-      catppuccin_theme.visual.a.bg = colors.yellow
-      catppuccin_theme.replace.a.bg = colors.red
-      catppuccin_theme.command.a.bg = colors.mauve
 
       require('lualine').setup {
         options = {
-          theme = catppuccin_theme,
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' },
-          globalstatus = true,
-          refresh = {
-            statusline = 100,
-            tabline = 100,
-            winbar = 100,
-          },
+          theme = 'everforest',
+          icons_enabled = true,
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' },
         },
         sections = {
           lualine_a = {
@@ -939,7 +900,7 @@ require('lazy').setup({
                 error = { fg = colors.red, gui = 'bold' },
                 warn = { fg = colors.peach, gui = 'bold' },
                 info = { fg = colors.sky, gui = 'bold' },
-                hint = { fg = colors.teal, gui = 'bold' },
+                hint = { fg = colors.cyan, gui = 'bold' },
               },
               separator = { left = '' },
             },
