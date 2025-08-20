@@ -76,6 +76,15 @@ installAurPackages() {
   done
 }
 
+installDeepCoolDriver() {
+  echo "Do you want to install DeepCool CPU-Fan driver?"
+  deepcool=$(gum choose "Yes" "No")
+  if [[ "$deepcool" == "Yes" ]]; then
+    sudo cp "$location/DeepCool/deepcool-digital-linux" "/usr/sbin"
+    sudo cp "$location/DeepCool/deepcool-digital.service" "/etc/systemd/system/"
+  fi
+}
+
 configure_git() {
   echo ":: Want to configure git?"
   answer=$(gum choose "Yes" "No")
@@ -199,6 +208,7 @@ copy_config
 # detect_nvidia
 configure_git
 add_tmux_tpm
+installDeepCoolDriver
 
 echo -e "${MAGENTA}"
 cat <<"EOF"
