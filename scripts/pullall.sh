@@ -2,7 +2,7 @@
 
 # This script aims to traverse all subdirectories and execute 'git pull' in each one.
 
-dirs=$(fd -E "go" -E "yay" -E ".vscode" -E ".local" -E ".config" -E ".tmux" -H "^(\.git)$" "$HOME" -X echo {//})
+dirs=$(fd -E "go" -E "yay" -E ".vscode" -E ".local" -E ".config" -E ".tmux" -H "^(\.git)$" "$HOME" -x echo {//})
 
 for dir in $dirs; do
     if [ -d "$dir" ]; then
