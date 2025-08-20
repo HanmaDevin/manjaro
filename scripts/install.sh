@@ -136,7 +136,7 @@ copy_config() {
     mv "$HOME/.config" "$HOME/.config.bak"
   fi
 
-  sudo cp "$from/scripts/pullall.sh" "/usr/bin/"
+  sudo cp "$from/scripts/pullall.sh" "/usr/bin/pullall"
 
   if [[ ! -d "$HOME/Pictures/Screenshots/" ]]; then 
     mkdir -p "$HOME/Pictures/Screenshots/"
