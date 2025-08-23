@@ -87,7 +87,7 @@ alias info="pamac info -a"
 alias copy="xsel -i -b"
 alias paste="xsel -o -b"
 
-alias editzsh="nvim ~/.zshrc"
+alias editzsh="code ~/.zshrc"
 
 fastfetch
 
@@ -97,15 +97,12 @@ alias q="exit"
 alias lg="lazygit"
 alias bat='bat -p --color=always --theme="Dracula"'
 
-alias v="nvim"
-alias vim="nvim"
-alias vi="nvim"
 alias grep="grep --color=always"
 alias find="fd --color=always"
 
 alias ..='z ..'
 # you may also use the following one
-bindkey -s '^o' 'nvim $(fzf)\n'
+bindkey -s '^o' 'code $(fzf)\n'
 
 # python environments
 alias deac="deactivate"
@@ -118,7 +115,7 @@ function createnv() {
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
 
-export EDITOR=nvim
+export EDITOR=code
 
 # History
 HISTSIZE=5000

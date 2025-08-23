@@ -1,10 +1,10 @@
 #! /bin/bash
-#    ____           __        ____   _____           _       __ 
+#    ____           __        ____   _____           _       __
 #    /  _/___  _____/ /_____ _/ / /  / ___/__________(_)___  / /_
 #    / // __ \/ ___/ __/ __ `/ / /   \__ \/ ___/ ___/ / __ \/ __/
-#  _/ // / / (__  ) /_/ /_/ / / /   ___/ / /__/ /  / / /_/ / /_  
-# /___/_/ /_/____/\__/\__,_/_/_/   /____/\___/_/  /_/ .___/\__/  
-#                                                  /_/           
+#  _/ // / / (__  ) /_/ /_/ / / /   ___/ / /__/ /  / / /_/ / /_
+# /___/_/ /_/____/\__/\__,_/_/_/   /____/\___/_/  /_/ .___/\__/
+#                                                  /_/
 clear
 
 from="$HOME/manjaro/"
@@ -21,7 +21,7 @@ packages=(
   "btop"
   "mpv"
   "mpv-mpris"
-  "neovim"
+  "vim"
   "nodejs"
   "npm"
   "zsh"
@@ -61,6 +61,7 @@ aur_paqkages=(
   "lazydocker"
   "ani-cli"
   "luajit-tiktoken-bin"
+  "visual-studio-code-bin"
   "xwaylandvideobridge"
   )
 
@@ -128,17 +129,17 @@ configure_git() {
 copy_config() {
   gum spin --spinner dot --title "Creating bakups..." -- sleep 2
 
-  if [[ -f "$HOME/.zshrc" ]]; then 
+  if [[ -f "$HOME/.zshrc" ]]; then
     mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
   fi
 
-  if [[ -d "$HOME/.config" ]]; then 
+  if [[ -d "$HOME/.config" ]]; then
     mv "$HOME/.config" "$HOME/.config.bak"
   fi
 
   sudo cp "$from/scripts/pullall.sh" "/usr/bin/pullall"
 
-  if [[ ! -d "$HOME/Pictures/Screenshots/" ]]; then 
+  if [[ ! -d "$HOME/Pictures/Screenshots/" ]]; then
     mkdir -p "$HOME/Pictures/Screenshots/"
   fi
 
@@ -146,11 +147,11 @@ copy_config() {
   cp -r "$cfgPath" "$HOME/"
 
   sudo cp -r "$from/icons/" "/usr/share/"
- 
+
   echo ":: Want to install Vencord?"
   vencord=$(gum choose "Yes" "No")
 
-  if [[ "$vencord" == "Yes" ]]; then 
+  if [[ "$vencord" == "Yes" ]]; then
     bash "$from/Vencord/VencordInstaller.sh"
     cp -r "$from/Vencord/themes/" "$HOME/.config/Vencord/"
   fi
@@ -158,7 +159,7 @@ copy_config() {
 
 add_tmux_tpm() {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  mkdir -p ~/.config/tmux/plugins/catppuccin 
+  mkdir -p ~/.config/tmux/plugins/catppuccin
   git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 }
 
@@ -212,11 +213,11 @@ installDeepCoolDriver
 
 echo -e "${MAGENTA}"
 cat <<"EOF"
-    ____  __                        ____       __                __ 
+    ____  __                        ____       __                __
    / __ \/ /__  ____ _________     / __ \___  / /_  ____  ____  / /_
   / /_/ / / _ \/ __ `/ ___/ _ \   / /_/ / _ \/ __ \/ __ \/ __ \/ __/
- / ____/ /  __/ /_/ (__  )  __/  / _, _/  __/ /_/ / /_/ / /_/ / /_  
-/_/   /_/\___/\__,_/____/\___/  /_/ |_|\___/_.___/\____/\____/\__/  
+ / ____/ /  __/ /_/ (__  )  __/  / _, _/  __/ /_/ / /_/ / /_/ / /_
+/_/   /_/\___/\__,_/____/\___/  /_/ |_|\___/_.___/\____/\____/\__/
 EOF
 echo "and thank you for choosing my config :)"
 echo -e "${NONE}"
