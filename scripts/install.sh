@@ -49,6 +49,7 @@ packages=(
   "ttf-font-awesome"
   "ttf-nerd-fonts-symbols"
   "ttf-jetbrains-mono-nerd"
+  "otf-geist-mono-nerd"
   "noto-fonts-emoji"
   "7zip"
   "texlive"
