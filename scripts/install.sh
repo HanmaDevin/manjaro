@@ -57,7 +57,7 @@ packages=(
   "inetutils"
 )
 
-aur_paqkages=(
+aur_packages=(
   "google-chrome"
   "lazydocker"
   "ani-cli"
@@ -73,7 +73,7 @@ installPackages() {
 }
 
 installAurPackages() {
-  for aur_pkg in "${aur_paqkages[@]}"; do
+  for aur_pkg in "${aur_packages[@]}"; do
     pamac build --no-confirm "$aur_pkg"
   done
 }
